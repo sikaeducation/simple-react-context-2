@@ -1,0 +1,18 @@
+.App {
+}
+
+.Outer, .Middle, .Inner {
+  padding: 36px;
+}
+
+.Outer {
+  border: 2px solid hsl(0, 50%, 50%);
+}
+
+.Middle {
+  border: 2px solid hsl(120, 50%, 50%);
+}
+
+.Inner {
+  border: 2px solid hsl(240, 50%, 50%);
+}
