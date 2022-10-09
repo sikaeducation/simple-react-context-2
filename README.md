@@ -4,7 +4,7 @@ This React factors three components: Outer, Middle, and Inner:
 
 ```
 |-Outer---------------------|
-|          `user`,`setUser` |
+|          `user`,`logout`  |
 | |-Middle--------|-------| |
 | |               |       | |
 | | |-Inner-------|-----| | |
@@ -16,11 +16,11 @@ This React factors three components: Outer, Middle, and Inner:
 |---------------------------|
 ```
 
-Right now, `user` and `setUser` are defined in `Outer`, passed into `Middle`, which passes it into `Inner`. Refactor it to use the Context API so that `user` and `setUser` bypass the `Middle` component entirely.
+Right now, `user` and `logout` are defined in `Outer`, passed into `Middle`, which passes it into `Inner`. Refactor it to use the Context API so that `user` and `logout` bypass the `Middle` component entirely.
 
 ```
 |-Outer---------------------|
-|         `user`,`setUser`-------
+|         `user`,`logout`--------
 | |-Middle----------------| |   |
 | |                       | |   |
 | | |-Inner-------------| | |   |

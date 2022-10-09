@@ -1,5 +1,5 @@
 import './App.css';
-import {useState} from 'react';
+import {useState, useContext, createContext} from 'react';
 
 function App() {
   return (
@@ -9,6 +9,8 @@ function App() {
   );
 }
 
+const userContext = createContext()
+
 function Outer(){
   const [user, setUser] = useState({
     username: "sikaeducation",
@@ -17,20 +19,24 @@ function Outer(){
 
   return (
     <div className="Outer">
-      <Middle user={user} logout={ logout } />
+      <userContext.Provider value={{ user, logout }}>
+        <Middle />
+      </userContext.Provider>
     </div>
   )
 }
 
-function Middle({ user, logout }){
+function Middle(){
   return (
     <div className="Middle">
-      <Inner user={user} logout={ logout } />
+      <Inner />
     </div>
   )
 }
 
-function Inner({ user, logout }){
+function Inner(){
+  const {user, logout} = useContext(userContext)
+
   return (
     <div className="Inner">
       {user && <p>{user.username} is logged in</p>} 
